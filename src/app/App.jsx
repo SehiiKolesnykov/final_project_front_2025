@@ -1,4 +1,4 @@
-import "styles/App.css";
+
 import { AppRouter } from "@/app/router";
 import Header from "@/shared/ui/Header";
 
