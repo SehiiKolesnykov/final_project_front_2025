@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { useMediaQuery } from "@/shared/ui/UseMedia";
 
-export default function Notifications() {
+export default function Notifications({post}) {
+    const [notificationId,id,username,avatar,text,name] = post
 
     const Notifications = styled.div`
     background-color: #000;
     padding:15px;
     `
     const NotificationsWrapper = styled.div`
-    
     `
     const NotificationsPost = styled.div`
     background-color: #438;
