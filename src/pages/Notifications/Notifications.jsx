@@ -9,6 +9,7 @@ export default function Notifications() {
     padding:15px;
     `
     const NotificationsWrapper = styled.div`
+    
     `
     const NotificationsPost = styled.div`
     background-color: #438;

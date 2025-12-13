@@ -1,0 +1,57 @@
+[
+    {
+        "notificationId": 1,
+        "user": {
+            "id": 1,
+            "username": "yarles",
+            "name": "Ярослав",
+            "avatar": "https://pbs.twimg.com/profile_images/1175026726155575296/QLVwDQYh_x96.jpg"
+        },
+        "text": "leomgnunitbnrbnbnrbnrbnrjbnjfgnbjgfnbjfngbfgjbkfgnbkgffkbngjfnkfjbknb"
+    },
+    {
+        "notificationId": 2,
+        "user": {
+            "id": 2,
+            "username": "ruslus",
+            "name": "Руслан",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd6VONdCBeFXdaiQdHVbVqo5WfNKshMp0IUg&s"
+        },
+        "text": "leomgnunitbnrbnbnrbnrbnrjbnjfgnbjgfnbjfngbfgjbkfgnbkgffkbngjfnkfjbknb"
+
+    },
+    {
+        "notificationId": 3,
+        "user": {
+            "id": 3,
+            "username": "alianss",
+            "name": "Аліна",
+            "avatar": "https://sun1-55.userapi.com/s/v1/ig1/shNCRxSz7j9dClRsj8pbVLWJaQd0OUK1568HAe6eauAKjQCUqbxyKiub3vhoM7oJ_1BbJI2v.jpg?quality=96&crop=158,70,378,378&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360&ava=1&cs=240x240"
+        },
+        "text": "leomgnunitbnrbnbnrbnrbnrjbnjfgnbjgfnbjfngbfgjbkfgnbkgffkbngjfnkfjbknb"
+
+    },
+    {
+        "notificationId": 4,
+        "user": {
+            "id": 4,
+            "username": "katara",
+            "name": "Катя",
+            "avatar": "https://img.freepik.com/free-photo/view-beautiful-persian-domestic-cat_23-2151773821.jpg?semt=ais_hybrid&w=740&q=80"
+        },
+        "text": "leomgnunitbnrbnbnrbnrbnrjbnjfgnbjgfnbjfngbfgjbkfgnbkgffkbngjfnkfjbknb"
+
+    },
+    {
+        "notificationId": 5,
+        "user": {
+            "id": 5,
+            "username": "ksyyha",
+            "name": "Ксенія",
+            "avatar": "https://i.pinimg.com/474x/06/d1/c8/06d1c856d755317d2eaa9297dd1c28a0.jpg"
+        },
+        "text": "leomgnunitbnrbnbnrbnrbnrjbnjfgnbjgfnbjfngbfgjbkfgnbkgffkbngjfnkfjbknb"
+
+    }
+    
+]
