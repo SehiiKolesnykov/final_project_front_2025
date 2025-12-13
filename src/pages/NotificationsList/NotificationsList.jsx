@@ -15,6 +15,12 @@ export default function NotificationList() {
     padding:15px;
     `
     const NotificationsWrapper = styled.div`
+    max-width:1280px;
+    margin: 0 auto;
+    border:1px solid #6e767d;
+    
+   
+
 
     `
     return (

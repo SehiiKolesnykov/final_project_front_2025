@@ -4,9 +4,9 @@ import { useMediaQuery } from "@/shared/ui/UseMedia";
 
 export default function Notifications({ post }) {
     const NotificationsPost = styled.div`
-    background-color: #438;
     margin-bottom: 20px;
     padding: 15px;
+    border-bottom: none;
     `
     const Avatar = styled.img`
     width: 50px;
@@ -15,6 +15,7 @@ export default function Notifications({ post }) {
     object-fit: cover;
     `
     const UserInfoWrapper = styled.div`
+    color:#fff;
     display:flex;
     align-items:center;
     gap:10px;
@@ -31,7 +32,7 @@ export default function Notifications({ post }) {
   font-size: 15px;
 `
     const Content = styled.p`
-color: #000;
+color: #fff;
 font-size: 15px;
 
 `
