@@ -1,31 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useMediaQuery } from "@/shared/ui/UseMedia";
 
 export default function Notifications({ post }) {
-    
-    const Notifications = styled.div`
-    background-color: #000;
-    padding:15px;
-    `
-    const NotificationsWrapper = styled.div`
-    `
     const NotificationsPost = styled.div`
     background-color: #438;
     margin-bottom: 20px;
+    padding: 15px;
     `
+    const Avatar = styled.img`
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    `
+    const UserInfoWrapper = styled.div`
+    display:flex;
+    align-items:center;
+    gap:10px;
+    
+    `
+    const Name = styled.h3`
+  font-size: 15px;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+    const UserName = styled.p`
+  color: #6e767d;
+  font-size: 15px;
+`
+    const Content = styled.p`
+color: #000;
+font-size: 15px;
 
+`
     return (
-            <Notifications>
-                <NotificationsWrapper>
-                    <NotificationsPost>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ducimus nobis reprehenderit debitis provident eligendi quis voluptatum possimus, voluptatem dolor excepturi doloribus incidunt error neque aspernatur perferendis dolore enim obcaecati!</NotificationsPost>
-                    <NotificationsPost>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime culpa non rerum similique obcaecati dolorem, dolorum quam temporibus? Eveniet cumque eum ipsum illum aspernatur iusto aut ut aliquam ea. Iste.</NotificationsPost>
-                    <NotificationsPost>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ipsum excepturi quos est, harum voluptatibus dicta ratione quasi illo sed consectetur inventore molestias neque quibusdam! Fugiat optio dolor placeat magnam.</NotificationsPost>
-                    <NotificationsPost>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem in pariatur ullam perspiciatis nulla, sunt recusandae suscipit deleniti obcaecati incidunt omnis est sapiente id, dignissimos veritatis qui blanditiis, doloremque voluptatem.</NotificationsPost>
-                    <NotificationsPost>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi maiores aperiam quia. Eum tempora dicta natus pariatur, porro voluptas ut ad quam velit molestias maiores numquam quaerat! Explicabo, reiciendis dolorum.</NotificationsPost>
-                </NotificationsWrapper>
-            </Notifications>
-
+        <NotificationsPost>
+            <UserInfoWrapper>
+                <Avatar src={`${post.avatar}`} />
+                <Name>{post.user.name}</Name>
+                <UserName>@{post.user.username}</UserName>
+            </UserInfoWrapper>
+            <Content>
+                {post.text}
+            </Content>
+        </NotificationsPost>
     )
 
 }

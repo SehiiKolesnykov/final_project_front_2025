@@ -1,7 +1,7 @@
 import { useRoutes } from "react-router-dom";
+import React,{useState,useEffect} from "react";
 import FeedPage from "@/pages/feed/FeedPage";
-import Notifications from "@/pages/Notifications/Notifications";
-
+import NotificationList from "@/pages/NotificationsList/NotificationsList";
 const RootRouter = [
   {
     path: "/",
@@ -29,7 +29,7 @@ const RootRouter = [
   },
   {
     path: "/users/:id/notifications",
-    element:<Notifications/>,
+    element:<NotificationList/>,
   },
   {
     path: "/users/:id/favorite",
