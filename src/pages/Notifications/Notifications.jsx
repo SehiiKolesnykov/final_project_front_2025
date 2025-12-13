@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useMediaQuery } from "@/shared/ui/UseMedia";
 
 export default function Notifications({ post }) {
+    
     const Notifications = styled.div`
     background-color: #000;
     padding:15px;
@@ -15,13 +16,6 @@ export default function Notifications({ post }) {
     `
 
     return (
-        <>
-
-
-            {post.map((singlePost) => (
-                console.log(singlePost)
-            ))}
-
             <Notifications>
                 <NotificationsWrapper>
                     <NotificationsPost>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ducimus nobis reprehenderit debitis provident eligendi quis voluptatum possimus, voluptatem dolor excepturi doloribus incidunt error neque aspernatur perferendis dolore enim obcaecati!</NotificationsPost>
@@ -31,8 +25,6 @@ export default function Notifications({ post }) {
                     <NotificationsPost>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi maiores aperiam quia. Eum tempora dicta natus pariatur, porro voluptas ut ad quam velit molestias maiores numquam quaerat! Explicabo, reiciendis dolorum.</NotificationsPost>
                 </NotificationsWrapper>
             </Notifications>
-
-        </>
 
     )
 
