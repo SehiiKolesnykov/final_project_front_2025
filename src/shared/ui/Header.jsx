@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import React,{useEffect,useState} from "react";
-import styled from "styled-components";
 import MainLogoSvg from '../../image/WiDi.svg?react'
 import MenuLogo from '../../image/menu.svg?react'
 import PostLogo from '../../image/posts.svg?react'
@@ -12,6 +11,14 @@ import ProfileLogo from '../../image/profile.svg?react'
 import NotificationLogo from '../../image/notifications.svg?react'
 import CircleNotif from '../../image/circle.svg?react'
 import { useMediaQuery } from "./UseMedia";
+import{
+  Heder,
+  HeaderWrapper,
+  MenuWrapper,
+  LogoWrapper,
+  Title
+
+} from './HeaderStyled'
 export default function Header() {
   const [isShow, setShowMenu] = useState(false)
   const [posts, setPosts] = useState([])
@@ -27,54 +34,11 @@ export default function Header() {
   function showBurgerMenu() {
     setShowMenu(!isShow)
   }
-  const Header = styled.header`
-  position:sticky;
-  top: 0;
-  z-index: 1000;
-  background: #000;
-  a{
-  text-decoration: none;
-  color: #fff;
-  border: 1px solid #000;
-  background: #000;
-  border-radius: 10px;
-  display:flex;
-  align-items:center;
-  padding:10px;
-  }
-  `
-  const HeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items:center;
-  padding: 15px;
-  `
-  const MenuWrapper = styled.div`
-  display:flex;
-  flex-direction:column;
-  position:absolute;
-  top:50px;
-  right:10px;
-  gap:5px;
-  @media(min-width:769px){
-  flex-direction:row;
-  position:static;
-  }
-  `
-  const LogoWrapper = styled.div`
-  display: flex;
-  align-items:center;
-  gap: 10px;
-  `
-  const Title = styled.h1`
-  color: #fff;
-  font-size: 20px;
   
-  `
   return (
     <>
       {isMobile && (
-        <Header>
+        <Heder>
           <HeaderWrapper>
             <LogoWrapper>
               <MainLogoSvg />
@@ -124,12 +88,12 @@ export default function Header() {
               </MenuWrapper>
             )}
           </HeaderWrapper>
-        </Header>
+        </Heder>
 
 
       )}
       {isTablet && (
-        <Header>
+        <Heder>
           <HeaderWrapper>
             <LogoWrapper>
               <MainLogoSvg />
@@ -176,12 +140,12 @@ export default function Header() {
               </NavLink>
             </MenuWrapper>
           </HeaderWrapper>
-        </Header>
+        </Heder>
 
 
       )}
       {isDesktop && (
-        <Header>
+        <Heder>
           <HeaderWrapper>
             <LogoWrapper>
               <MainLogoSvg />
@@ -228,7 +192,7 @@ export default function Header() {
               </NavLink>
             </MenuWrapper>
           </HeaderWrapper>
-        </Header>
+        </Heder>
       )}
 
     </>
