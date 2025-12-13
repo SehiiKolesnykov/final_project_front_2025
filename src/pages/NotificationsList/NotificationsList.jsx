@@ -17,11 +17,6 @@ export default function NotificationList() {
     const NotificationsWrapper = styled.div`
     max-width:1280px;
     margin: 0 auto;
-    border:1px solid #6e767d;
-    
-   
-
-
     `
     return (
         <Notification>
@@ -30,10 +25,7 @@ export default function NotificationList() {
                     <Notifications post={singlePost} key={singlePost.id}/>
                 )
                 )}
-
             </NotificationsWrapper>
-
-
         </Notification>
 
 

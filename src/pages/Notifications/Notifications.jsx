@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { useMediaQuery } from "@/shared/ui/UseMedia";
 
 export default function Notifications({ post }) {
+    const NotificationPostLink = styled.a`
+    text-decoration:none;
+    color:#000;
+    `
     const NotificationsPost = styled.div`
-    margin-bottom: 20px;
-    padding: 15px;
-    border-bottom: none;
+    background-color: #fff;
+    border-radius:20px;
+    margin-bottom:5px;
+    padding: 5px;
+    border-bottom:1px solid #6e767d;
     `
     const Avatar = styled.img`
     width: 50px;
@@ -15,7 +20,7 @@ export default function Notifications({ post }) {
     object-fit: cover;
     `
     const UserInfoWrapper = styled.div`
-    color:#fff;
+    color:#000;
     display:flex;
     align-items:center;
     gap:10px;
@@ -32,21 +37,23 @@ export default function Notifications({ post }) {
   font-size: 15px;
 `
     const Content = styled.p`
-color: #fff;
 font-size: 15px;
 
 `
     return (
-        <NotificationsPost>
-            <UserInfoWrapper>
-                <Avatar src={`${post.avatar}`} />
-                <Name>{post.user.name}</Name>
-                <UserName>@{post.user.username}</UserName>
-            </UserInfoWrapper>
-            <Content>
-                {post.text}
-            </Content>
-        </NotificationsPost>
+        <NotificationPostLink href="#">
+            <NotificationsPost>
+                <UserInfoWrapper>
+                    <Avatar src={post.user.avatar} />
+                    <Name>{post.user.name}</Name>
+                    <UserName>@{post.user.username}</UserName>
+                </UserInfoWrapper>
+                <Content>
+                    {post.text}
+                </Content>
+            </NotificationsPost>
+
+        </NotificationPostLink>
     )
 
 }
