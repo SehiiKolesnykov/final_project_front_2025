@@ -9,8 +9,14 @@ import {
     Content
 
 } from '../Notifications/NotificationsStyled'
+import Close from "../../image/close.svg?react"
+import { CloseButton } from "../Notifications/NotificationsStyled";
 
-export default function Notifications({ post }) {
+
+
+export default function Notifications({post,onClose}) {
+    
+
     return (
         <NotificationPostLink href='#'>
             <NotificationsPost>
@@ -22,6 +28,7 @@ export default function Notifications({ post }) {
                 <Content>
                     {post.text}
                 </Content>
+                <CloseButton onClick={onClose}><Close/></CloseButton>
             </NotificationsPost>
 
         </NotificationPostLink>

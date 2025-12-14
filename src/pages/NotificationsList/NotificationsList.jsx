@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Notifications from "../Notifications/Notifications";
-import {Notification,NotificationsWrapper} from '../NotificationsList/NotificationsListStyle'
+import { Notification, NotificationsWrapper } from '../NotificationsList/NotificationsListStyle'
 
 export default function NotificationList() {
     const [posts, setPosts] = useState([])
@@ -10,12 +10,18 @@ export default function NotificationList() {
             .then((data) => setPosts(data));
 
     }, [])
-   
+
+
+    const deletePost = (notificationId) => {
+        setPosts(prev => prev.filter(item => item.notificationId !== notificationId));
+        
+        console.log("Post with id:" + ' ' + notificationId + ' ' + "deleted!")
+    }
     return (
         <Notification>
             <NotificationsWrapper>
                 {posts.map((singlePost) => (
-                    <Notifications post={singlePost} key={singlePost.id}/>
+                    <Notifications post={singlePost} key={singlePost.id} onClose={() => deletePost(singlePost.notificationId)} />
                 )
                 )}
             </NotificationsWrapper>

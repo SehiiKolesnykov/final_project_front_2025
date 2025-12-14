@@ -76,9 +76,9 @@
 
     },
     {
-        "notificationId": 7,
+        "notificationId": 8,
         "user": {
-            "id": 7,
+            "id": 8,
             "username": "ksyyha",
             "name": "Ксенія",
             "avatar": "https://i.pinimg.com/474x/06/d1/c8/06d1c856d755317d2eaa9297dd1c28a0.jpg"
@@ -87,9 +87,9 @@
 
     },
     {
-        "notificationId": 8,
+        "notificationId": 9,
         "user": {
-            "id": 8,
+            "id": 9,
             "username": "ksyyha",
             "name": "Ксенія",
             "avatar": "https://i.pinimg.com/474x/06/d1/c8/06d1c856d755317d2eaa9297dd1c28a0.jpg"

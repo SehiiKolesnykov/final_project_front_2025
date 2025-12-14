@@ -5,6 +5,7 @@ export const NotificationPostLink = styled.a`
     color:#000;
     `
 export const NotificationsPost = styled.div`
+    position:relative;
     background-color: #fff;
     border-radius:20px;
     margin-bottom:5px;
@@ -35,6 +36,16 @@ export const UserName = styled.p`
   font-size: 15px;
 `
 export const Content = styled.p`
-font-size: 15px;
+  font-size: 15px;
+
+`
+
+export const CloseButton = styled.button`
+  position:absolute;
+  top:0;
+  right:0;
+  border:none;
+  background:none;
+
 
 `
