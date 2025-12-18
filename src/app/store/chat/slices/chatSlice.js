@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { calculateUnreadCount } from "../../utils/chatHelpers";
+import { calculateUnreadCount } from "@/pages/chat/utils/chatHelper";
+//
 
 //  Мои рандомные фейковые данные
 const initialState = {
