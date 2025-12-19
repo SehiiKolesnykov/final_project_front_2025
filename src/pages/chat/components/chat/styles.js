@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const ChatArea = styled.div`
-  width: 140rem;
+  width: 40rem;
   /* flex: 1; */
   display: flex;
   flex-direction: column;

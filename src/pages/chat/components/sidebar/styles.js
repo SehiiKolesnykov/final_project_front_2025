@@ -126,10 +126,9 @@ export const ConversationOptions = styled.button`
 `;
 
 export const ConversationOptionsMenu = styled.div`
-  position: absolute;
   margin-top: 40px;
-  left: 205px;
-  /* width: 200px; */
+  position: absolute;
+  margin-left: 148px;
   border: 2px solid black;
   border-radius: 10px;
 `;
