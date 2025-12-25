@@ -4,6 +4,11 @@ export const NotificationPostLink = styled.a`
     text-decoration:none;
     color:#000;
     `
+export const Time = styled.p`
+  color: #6e767d;
+  font-size: 15px;
+
+`
 export const NotificationsPost = styled.div`
     position:relative;
     background-color: #fff;
