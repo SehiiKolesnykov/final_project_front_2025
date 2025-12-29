@@ -5,7 +5,7 @@ import NotificationList from "@/pages/NotificationsList/NotificationsList";
 const RootRouter = [
   {
     path: "/",
-    element:'',
+    element:<FeedPage/>,
   },
   {
     path: "/users/:id",
