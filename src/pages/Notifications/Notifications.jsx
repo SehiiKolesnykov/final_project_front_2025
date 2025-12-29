@@ -7,42 +7,43 @@ import {
     Name,
     UserName,
     Content,
-    Time
 } from '../Notifications/NotificationsStyled'
-import { NavLink } from "react-router-dom";
 import Close from "../../image/close.svg?react"
 import { CloseButton } from "../Notifications/NotificationsStyled";
-
+import PostDate from "../post/ui/PostDate";
 
 export default function Notifications({post,onClose}) {
 
-        function getHref(){
-            if(post.text === 'Send new message for you'){
-                return "/users/:id/chat" 
-            }else{
-                return "/users/:id/posts"
+    const {avatar, name, username, textNf, createdTime} = post;
+
+    function getHref() {
+        if (textNf === 'Public a new post') {
+            return "/users/:id/posts"
+        } else {
+            return "/users/:id/chat"
             
-            }
-
         }
+    }
 
-        const getTime = (createTime) => {
-           let time = new Date(createTime)
-           return time.toLocaleDateString()
-        }   
     return (
         <NotificationPostLink href={getHref()}>
             <NotificationsPost>
                 <UserInfoWrapper>
-                    <Avatar src={post.user.avatar}/>
-                    <Name>{post.user.name}</Name>
-                    <UserName>@{post.user.username}</UserName>
-                    <Time>{getTime(post.createTime)}</Time>
+                    <Avatar src={avatar} />
+                    <Name>{name}</Name>
+                    <UserName>@{username}</UserName>
+                    <PostDate time={createdTime} />
                 </UserInfoWrapper>
                 <Content>
-                    {post.text}
+                    {textNf}
                 </Content>
-                <CloseButton onClick={onClose}><Close/></CloseButton>
+                <CloseButton onClick={
+                    (e)=>{
+                    e.preventDefault()
+                    onClose()
+                    }}><Close/></CloseButton>
+
+                        
             </NotificationsPost>
         </NotificationPostLink>
     )

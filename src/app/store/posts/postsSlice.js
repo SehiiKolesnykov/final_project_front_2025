@@ -34,6 +34,7 @@ const normalizePost = (post) => {
     name: post.user.name,
     avatar: post.user.avatar,
     text: post.text,
+    textNf: post.textNf,
     media: post.media,
     replies: post.actions.replies,
     likes: post.actions.likes,
@@ -69,6 +70,11 @@ const postsSlice = createSlice({
           state.currentPost.replies += 1;
         }
       }
+    },
+    deletePost: (state, action) => {
+      state.feedPosts = state.feedPosts.filter(
+        post => post.postId !== action.payload
+      );
     },
 
     toggleLike: (state, action) => {
@@ -169,5 +175,5 @@ const postsSlice = createSlice({
   },
 });
 
-export const { createPost, toggleLike, setCurrentPost } = postsSlice.actions;
+export const { createPost, toggleLike, setCurrentPost,deletePost } = postsSlice.actions;
 export default postsSlice.reducer;

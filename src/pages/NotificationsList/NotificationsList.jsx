@@ -1,28 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Notifications from "../Notifications/Notifications";
 import { Notification, NotificationsWrapper } from '../NotificationsList/NotificationsListStyle'
+import { useSelector,useDispatch} from "react-redux";
+import { deletePost } from  "@/app/store/posts/postsSlice";
+import {
+    selectFeedPosts,
+} from "@/app/store/posts/postsSelectors";
 
 export default function NotificationList() {
-    const [posts, setPosts] = useState([])
-    useEffect(() => {
-        fetch('../../../public/notications.json')
-            .then((res) => res.json())
-            .then((data) => setPosts(data));
-
-    }, [])
-    const deletePost = (notificationId) => {
-        setPosts(prev => prev.filter(item => item.notificationId !== notificationId));
-
-        console.log("Post with id:" + ' ' + notificationId + ' ' + "deleted!")
+    const dispatch = useDispatch()
+    const posts = useSelector(selectFeedPosts);
+    const handleDelete = (postId) => {
+        dispatch(deletePost(postId))
+        console.log("Post with id:" + ' ' + postId + ' ' + "deleted!")
     }
-   
+
     return (
         <Notification>
             <NotificationsWrapper>
-                {posts.map((singlePost) => (
-                    <Notifications post={singlePost} key={singlePost.id} onClose={()=>deletePost(singlePost.notificationId)} />
-                )
-                )}
+                {posts.map(post => (
+                    <Notifications key={post.postId} post={post} onClose={() => handleDelete(post.postId)} />
+                ))}
             </NotificationsWrapper>
         </Notification>
 

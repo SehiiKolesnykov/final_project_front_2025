@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-
 import PageWrapper from "@/shared/ui/PageWrapper";
 import PostCard from "@/shared/post/PostCard/PostCard";
 import {
@@ -30,7 +29,6 @@ export default function PostPage() {
   const { postId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const feedPosts = useSelector(selectFeedPosts);
   const post = useSelector(selectCurrentPost);
   const replies = useSelector(selectReplies);

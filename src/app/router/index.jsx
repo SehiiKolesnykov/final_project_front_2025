@@ -23,7 +23,7 @@ const RootRouter = [
   },
   {
     path: "/users/:id/posts",
-    element: <h1>Posts</h1>,
+    element: <FeedPage/>,
   },
   {
     path: "/users/:id/profile",

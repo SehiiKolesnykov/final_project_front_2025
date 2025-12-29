@@ -59,6 +59,7 @@ function CreatePostForm({ parentId = null, isReply = false, username }) {
       avatar:
         "https://pbs.twimg.com/profile_images/1175026726155575296/QLVwDQYh_x96.jpg",
       text,
+      textNf:'Public a new post',
       media: media?.preview || null,
       replies: 0,
       likes: 0,
