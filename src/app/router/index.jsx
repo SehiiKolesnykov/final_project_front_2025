@@ -1,6 +1,8 @@
 import { useRoutes } from "react-router-dom";
 import React from "react";
+
 import FeedPage from "@/pages/feed/FeedPage";
+import PostPage from "@/pages/post/PostPage";
 import NotificationList from "@/pages/NotificationsList/NotificationsList";
 const RootRouter = [
   {
@@ -10,6 +12,10 @@ const RootRouter = [
   {
     path: "/users/:id",
     element: <h1>User Profile Page</h1>,
+  },
+  {
+    path: "/:username/post/:postId",
+    element: <PostPage />,
   },
   {
     path: "/users/:id/chat",
