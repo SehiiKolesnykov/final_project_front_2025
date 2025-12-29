@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import MainLogoSvg from '../../image/WiDi.svg?react'
 import MenuLogo from '../../image/menu.svg?react'
 import PostLogo from '../../image/posts.svg?react'
@@ -9,9 +9,10 @@ import SearchLogo from '../../image/search.svg?react'
 import HomeLogo from '../../image/home.svg?react'
 import ProfileLogo from '../../image/profile.svg?react'
 import NotificationLogo from '../../image/notifications.svg?react'
+import SmsLogo from '../../image/sms.svg?react'
 import CircleNotif from '../../image/circle.svg?react'
 import { useMediaQuery } from "./UseMedia";
-import{
+import {
   Heder,
   HeaderWrapper,
   MenuWrapper,
@@ -23,18 +24,18 @@ export default function Header() {
   const [isShow, setShowMenu] = useState(false)
   const [posts, setPosts] = useState([])
   useEffect(() => {
-         fetch('../../../public/notications.json')
-             .then((res) => res.json())
-             .then((data) => setPosts(data));
- 
-     }, [])
+    fetch('../../../public/notications.json')
+      .then((res) => res.json())
+      .then((data) => setPosts(data));
+
+  }, [])
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isTablet = useMediaQuery("(min-width: 769px) and (max-width: 1024px)");
   const isDesktop = useMediaQuery("(min-width: 1025px)");
   function showBurgerMenu() {
     setShowMenu(!isShow)
   }
-  
+
   return (
     <>
       {isMobile && (
@@ -54,6 +55,10 @@ export default function Header() {
                 <NavLink to='/users/:id/profile'>
                   <ProfileLogo />
                   Profile
+                </NavLink>
+                <NavLink to='/users/:id/chat'>
+                  <SmsLogo/>
+                  Messenger
                 </NavLink>
                 <NavLink to='/users/:id/search'>
                   <SearchLogo />
@@ -77,7 +82,7 @@ export default function Header() {
                     )
                   )}
                   {(posts.length === 0 && (
-                    <NotificationLogo/>
+                    <NotificationLogo />
                   ))}
                   Notifications
                 </NavLink>
@@ -108,6 +113,10 @@ export default function Header() {
                 <ProfileLogo />
                 Profile
               </NavLink>
+              <NavLink to='/users/:id/chat'>
+                <SmsLogo />
+                Messenger
+              </NavLink>
               <NavLink to='/users/:id/search'>
                 <SearchLogo />
                 Search
@@ -121,19 +130,19 @@ export default function Header() {
                 Favorite
               </NavLink>
               <NavLink to='/users/:id/notifications'>
-                  {(posts.length >= 1 &&
-                    (
-                      <>
-                        <CircleNotif />
-                        <NotificationLogo />
-                      </>
-                    )
-                  )}
-                  {(posts.length === 0 && (
-                    <NotificationLogo/>
-                  ))}
-                  Notifications
-                </NavLink>
+                {(posts.length >= 1 &&
+                  (
+                    <>
+                      <CircleNotif />
+                      <NotificationLogo />
+                    </>
+                  )
+                )}
+                {(posts.length === 0 && (
+                  <NotificationLogo />
+                ))}
+                Notifications
+              </NavLink>
               <NavLink to='/users/:id/logout'>
                 <LogOut />
                 LogOut
@@ -160,6 +169,10 @@ export default function Header() {
                 <ProfileLogo />
                 Profile
               </NavLink>
+              <NavLink to='/users/:id/chat'>
+                <SmsLogo />
+                Messenger
+              </NavLink>
               <NavLink to='/users/:id/search'>
                 <SearchLogo />
                 Search
@@ -172,20 +185,20 @@ export default function Header() {
                 <FavsLogo />
                 Favorite
               </NavLink>
-             <NavLink to='/users/:id/notifications'>
-                  {(posts.length >= 1 &&
-                    (
-                      <>
-                        <CircleNotif />
-                        <NotificationLogo />
-                      </>
-                    )
-                  )}
-                  {(posts.length === 0 && (
-                    <NotificationLogo/>
-                  ))}
-                  Notifications
-                </NavLink>
+              <NavLink to='/users/:id/notifications'>
+                {(posts.length >= 1 &&
+                  (
+                    <>
+                      <CircleNotif />
+                      <NotificationLogo />
+                    </>
+                  )
+                )}
+                {(posts.length === 0 && (
+                  <NotificationLogo />
+                ))}
+                Notifications
+              </NavLink>
               <NavLink to='/users/:id/logout'>
                 <LogOut />
                 LogOut

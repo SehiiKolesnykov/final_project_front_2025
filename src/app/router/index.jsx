@@ -12,6 +12,10 @@ const RootRouter = [
     element: <h1>User Profile Page</h1>,
   },
   {
+    path: "/users/:id/chat",
+    element: <h1>Messenger</h1>,
+  },
+  {
     path: "/users/:id/posts",
     element: <h1>Posts</h1>,
   },
