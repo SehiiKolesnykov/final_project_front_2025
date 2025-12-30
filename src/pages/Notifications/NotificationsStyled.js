@@ -4,18 +4,12 @@ export const NotificationPostLink = styled.a`
     text-decoration:none;
     color:#000;
     `
-export const Time = styled.p`
-  color: #6e767d;
-  font-size: 15px;
-
-`
 export const NotificationsPost = styled.div`
     position:relative;
     background-color: #fff;
     border-radius:20px;
-    margin-bottom:5px;
+    margin-bottom:15px;
     padding: 5px;
-    border-bottom:1px solid #6e767d;
     `
 export const Avatar = styled.img`
     width: 50px;

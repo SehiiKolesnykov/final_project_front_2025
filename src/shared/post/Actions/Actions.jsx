@@ -20,7 +20,7 @@ function Actions({ post, withBorder }) {
   };
 
   return (
-    <ActionsWrapper $withBorder={withBorder}>
+    <ActionsWrapper>
       <ActionButton type="button" $action="reply">
         <IconWrapper>
           <ReplyIcon />

@@ -3,6 +3,7 @@ import React from "react";
 
 import FeedPage from "@/pages/feed/FeedPage";
 import PostPage from "@/pages/post/PostPage";
+import FavoriteList from "@/pages/FavoriteList/FavoriteList";
 import NotificationList from "@/pages/NotificationsList/NotificationsList";
 const RootRouter = [
   {
@@ -43,7 +44,7 @@ const RootRouter = [
   },
   {
     path: "/users/:id/favorite",
-    element: <h1>Favorites</h1>,
+    element: <FavoriteList/>,
   },
 ];
 

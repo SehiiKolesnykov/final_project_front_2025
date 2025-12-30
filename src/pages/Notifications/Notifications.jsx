@@ -21,7 +21,6 @@ export default function Notifications({post,onClose}) {
             return "/users/:id/posts"
         } else {
             return "/users/:id/chat"
-            
         }
     }
 
@@ -41,9 +40,7 @@ export default function Notifications({post,onClose}) {
                     (e)=>{
                     e.preventDefault()
                     onClose()
-                    }}><Close/></CloseButton>
-
-                        
+                    }}><Close/></CloseButton>       
             </NotificationsPost>
         </NotificationPostLink>
     )
