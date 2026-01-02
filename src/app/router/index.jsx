@@ -11,39 +11,35 @@ const RootRouter = [
     element:<FeedPage/>,
   },
   {
-    path: "/users/:id",
-    element: <h1>User Profile Page</h1>,
-  },
-  {
     path: "/:username/post/:postId",
     element: <PostPage />,
   },
   {
-    path: "/users/:id/chat",
+    path: "/:username/:id/chat",
     element: <h1>Messenger</h1>,
   },
   {
-    path: "/users/:id/posts",
+    path: "/:username/:id/posts",
     element: <FeedPage/>,
   },
   {
-    path: "/users/:id/profile",
+    path: "/:username/:id/profile",
     element: <h1>Profile</h1>,
   },
   {
-    path: "/users/:id/logout",
+    path: "/:username/:id/logout",
     element: <h1>LogOut</h1>,
   },
   {
-    path: "/users/:id/search",
+    path: "/:username/:id/search",
     element: <h1>Search</h1>,
   },
   {
-    path: "/users/:id/notifications",
+    path: "/:username/:id/notifications",
     element:<NotificationList/>,
   },
   {
-    path: "/users/:id/favorite",
+    path: "/:username/:id/favorite",
     element: <FavoriteList/>,
   },
 ];

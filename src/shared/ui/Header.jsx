@@ -52,27 +52,27 @@ export default function Header() {
                   <HomeLogo />
                   Home Page
                 </NavLink>
-                <NavLink to='/users/:id/profile'>
+                <NavLink to='/:username/:id/profile'>
                   <ProfileLogo />
                   Profile
                 </NavLink>
-                <NavLink to='/users/:id/chat'>
+                <NavLink to='/:username/:id/chat'>
                   <SmsLogo/>
                   Messenger
                 </NavLink>
-                <NavLink to='/users/:id/search'>
+                <NavLink to='/:username/:id/search'>
                   <SearchLogo />
                   Search
                 </NavLink>
-                <NavLink to='/users/:id/posts'>
+                <NavLink to='/:username/:id/posts'>
                   <PostLogo />
                   Posts
                 </NavLink>
-                <NavLink to='/users/:id/favorite'>
+                <NavLink to='/:username/:id/favorite'>
                   <FavsLogo />
                   Favorite
                 </NavLink>
-                <NavLink to='/users/:id/notifications'>
+                <NavLink to='/:username/:id/notifications'>
                   {(posts.length >= 1 &&
                     (
                       <>
@@ -86,7 +86,7 @@ export default function Header() {
                   ))}
                   Notifications
                 </NavLink>
-                <NavLink to='/users/:id/logout'>
+                <NavLink to='/:username/:id/logout'>
                   <LogOut />
                   LogOut
                 </NavLink>
@@ -109,27 +109,27 @@ export default function Header() {
                 <HomeLogo />
                 Home Page
               </NavLink>
-              <NavLink to='/users/:id/profile'>
+              <NavLink to='/:username/:id/profile'>
                 <ProfileLogo />
                 Profile
               </NavLink>
-              <NavLink to='/users/:id/chat'>
+              <NavLink to='/:username/:id/chat'>
                 <SmsLogo />
                 Messenger
               </NavLink>
-              <NavLink to='/users/:id/search'>
+              <NavLink to='/:username/:id/search'>
                 <SearchLogo />
                 Search
               </NavLink>
-              <NavLink to='/users/:id/posts'>
+              <NavLink to='/:username/:id/posts'>
                 <PostLogo />
                 Posts
               </NavLink>
-              <NavLink to='/users/:id/favorite'>
+              <NavLink to='/:username/:id/favorite'>
                 <FavsLogo />
                 Favorite
               </NavLink>
-              <NavLink to='/users/:id/notifications'>
+              <NavLink to='/:username/:id/notifications'>
                 {(posts.length >= 1 &&
                   (
                     <>
@@ -143,7 +143,7 @@ export default function Header() {
                 ))}
                 Notifications
               </NavLink>
-              <NavLink to='/users/:id/logout'>
+              <NavLink to='/:username/:id/logout'>
                 <LogOut />
                 LogOut
               </NavLink>
@@ -165,27 +165,27 @@ export default function Header() {
                 <HomeLogo />
                 Home Page
               </NavLink>
-              <NavLink to='/users/:id/profile'>
+              <NavLink to='/:username/:id/profile'>
                 <ProfileLogo />
                 Profile
               </NavLink>
-              <NavLink to='/users/:id/chat'>
+              <NavLink to='/:username/:id/chat'>
                 <SmsLogo />
                 Messenger
               </NavLink>
-              <NavLink to='/users/:id/search'>
+              <NavLink to='/:username/:id/search'>
                 <SearchLogo />
                 Search
               </NavLink>
-              <NavLink to='/users/:id/posts'>
+              <NavLink to='/:username/:id/posts'>
                 <PostLogo />
                 Posts
               </NavLink>
-              <NavLink to='/users/:id/favorite'>
+              <NavLink to='/:username/:id/favorite'>
                 <FavsLogo />
                 Favorite
               </NavLink>
-              <NavLink to='/users/:id/notifications'>
+              <NavLink to='/:username/:id/notifications'>
                 {(posts.length >= 1 &&
                   (
                     <>
@@ -199,7 +199,7 @@ export default function Header() {
                 ))}
                 Notifications
               </NavLink>
-              <NavLink to='/users/:id/logout'>
+              <NavLink to='/:username/:id/logout'>
                 <LogOut />
                 LogOut
               </NavLink>
