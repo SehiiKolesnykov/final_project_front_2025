@@ -7,7 +7,6 @@ import Favorite from "../Favorite/Favorite";
 import {FavoriteWrapper,Favorites} from './FavoriteListStyled'
 export default function FavoriteList() {
     const posts = useSelector(selectFeedPosts);
-
     return (
         <Favorites>
             <FavoriteWrapper>

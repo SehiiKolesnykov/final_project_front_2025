@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import MainLogoSvg from '../../image/WiDi.svg?react'
 import MenuLogo from '../../image/menu.svg?react'
 import PostLogo from '../../image/posts.svg?react'
@@ -11,6 +12,12 @@ import ProfileLogo from '../../image/profile.svg?react'
 import NotificationLogo from '../../image/notifications.svg?react'
 import SmsLogo from '../../image/sms.svg?react'
 import CircleNotif from '../../image/circle.svg?react'
+import { selectorIsShow } from "@/app/store/header/headerSelectors";
+import { useSelector} from "react-redux";
+import { actionMenu } from "@/app/store/header/headerSlice";
+import {
+    selectFeedPosts,
+} from "@/app/store/posts/postsSelectors";
 import { useMediaQuery } from "./UseMedia";
 import {
   Heder,
@@ -21,22 +28,16 @@ import {
 
 } from './HeaderStyled'
 export default function Header() {
-  const [isShow, setShowMenu] = useState(false)
-  const [posts, setPosts] = useState([])
-  useEffect(() => {
-    fetch('../../../public/notications.json')
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
-
-  }, [])
+  const posts = useSelector(selectFeedPosts)
+  const isShow = useSelector(selectorIsShow)
+  const dispatch = useDispatch()
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isTablet = useMediaQuery("(min-width: 769px) and (max-width: 1024px)");
   const isDesktop = useMediaQuery("(min-width: 1025px)");
   function showBurgerMenu() {
-    setShowMenu(!isShow)
+   dispatch(actionMenu())
   }
-
-  return (
+  return(
     <>
       {isMobile && (
         <Heder>
@@ -94,8 +95,6 @@ export default function Header() {
             )}
           </HeaderWrapper>
         </Heder>
-
-
       )}
       {isTablet && (
         <Heder>
@@ -150,8 +149,6 @@ export default function Header() {
             </MenuWrapper>
           </HeaderWrapper>
         </Heder>
-
-
       )}
       {isDesktop && (
         <Heder>
@@ -207,7 +204,6 @@ export default function Header() {
           </HeaderWrapper>
         </Heder>
       )}
-
     </>
   );
 }

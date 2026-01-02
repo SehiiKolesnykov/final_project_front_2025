@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
     NotificationPostLink,
     NotificationsPost,
@@ -13,17 +14,14 @@ import { CloseButton } from "../Notifications/NotificationsStyled";
 import PostDate from "../post/ui/PostDate";
 
 export default function Notifications({post,onClose}) {
-
-    const {avatar, name, username, textNf, createdTime} = post;
-
+    const {postId,avatar, name, username, textNf, createdTime} = post;
     function getHref() {
         if (textNf === 'Public a new post') {
-            return "/users/:id/posts"
+            return `/:${username}/post/${postId}`
         } else {
-            return "/users/:id/chat"
+            return `/:${username}/:id/chat`
         }
     }
-
     return (
         <NotificationPostLink href={getHref()}>
             <NotificationsPost>
@@ -44,5 +42,17 @@ export default function Notifications({post,onClose}) {
             </NotificationsPost>
         </NotificationPostLink>
     )
-
 }
+Notifications.propTypes = {
+  post: PropTypes.shape({
+    avatar: PropTypes.string,
+    name: PropTypes.string,
+    postId: PropTypes.number,
+    textNf:PropTypes.string,
+    username: PropTypes.string,
+    text: PropTypes.string,
+    media: PropTypes.string,
+    createdTime: PropTypes.number,
+  }),
+  onClose: PropTypes.func
+};

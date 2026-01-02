@@ -1,8 +1,8 @@
 import React from "react";
 import Notifications from "../Notifications/Notifications";
 import { Notification, NotificationsWrapper } from '../NotificationsList/NotificationsListStyle'
-import { useSelector,useDispatch} from "react-redux";
-import { deletePost } from  "@/app/store/posts/postsSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { deletePost } from "@/app/store/posts/postsSlice";
 import {
     selectFeedPosts,
 } from "@/app/store/posts/postsSelectors";
@@ -14,7 +14,6 @@ export default function NotificationList() {
         dispatch(deletePost(postId))
         console.log("Post with id:" + ' ' + postId + ' ' + "deleted!")
     }
-
     return (
         <Notification>
             <NotificationsWrapper>
@@ -23,9 +22,5 @@ export default function NotificationList() {
                 ))}
             </NotificationsWrapper>
         </Notification>
-
-
-
     )
-
 }
