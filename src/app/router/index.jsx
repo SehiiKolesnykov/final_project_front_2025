@@ -10,6 +10,7 @@ const RootRouter = [
     path: "/",
     element:<FeedPage/>,
   },
+
   {
     path: "/:username/post/:postId",
     element: <PostPage />,
@@ -38,6 +39,7 @@ const RootRouter = [
     path: "/:username/:id/notifications",
     element:<NotificationList/>,
   },
+  //
   {
     path: "/:username/:id/favorite",
     element: <FavoriteList/>,
