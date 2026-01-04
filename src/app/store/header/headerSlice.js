@@ -15,6 +15,8 @@ const headerSlice = createSlice({
     }
 })
 
+
 export const { actionMenu } = headerSlice.actions;
+
 
 export default headerSlice.reducer;

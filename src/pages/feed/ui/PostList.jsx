@@ -12,6 +12,7 @@ export default function PostList() {
 
   useEffect(() => {
     dispatch(fetchFeedThunk());
+    
   }, [dispatch]);
 
   const sortedPosts = [...posts].sort((a, b) => b.createdTime - a.createdTime);

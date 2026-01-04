@@ -13,31 +13,33 @@ import NotificationLogo from '../../image/notifications.svg?react'
 import SmsLogo from '../../image/sms.svg?react'
 import CircleNotif from '../../image/circle.svg?react'
 import { selectorIsShow } from "@/app/store/header/headerSelectors";
-import { useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { actionMenu } from "@/app/store/header/headerSlice";
 import {
-    selectFeedPosts,
+  selectFeedPosts,
 } from "@/app/store/posts/postsSelectors";
+import { selectorNotifications } from "@/app/store/notifications/notificationsSelector";
+import { clearNotifications } from "@/app/store/notifications/notificationsSlice";
 import { useMediaQuery } from "./UseMedia";
 import {
   Heder,
   HeaderWrapper,
   MenuWrapper,
   LogoWrapper,
-  Title
-
+  Title,
 } from './HeaderStyled'
 export default function Header() {
   const posts = useSelector(selectFeedPosts)
   const isShow = useSelector(selectorIsShow)
+  const hasNew = useSelector(selectorNotifications)
   const dispatch = useDispatch()
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isTablet = useMediaQuery("(min-width: 769px) and (max-width: 1024px)");
   const isDesktop = useMediaQuery("(min-width: 1025px)");
   function showBurgerMenu() {
-   dispatch(actionMenu())
+    dispatch(actionMenu())
   }
-  return(
+  return (
     <>
       {isMobile && (
         <Heder>
@@ -58,7 +60,7 @@ export default function Header() {
                   Profile
                 </NavLink>
                 <NavLink to='/:username/:id/chat'>
-                  <SmsLogo/>
+                  <SmsLogo />
                   Messenger
                 </NavLink>
                 <NavLink to='/:username/:id/search'>
@@ -73,20 +75,26 @@ export default function Header() {
                   <FavsLogo />
                   Favorite
                 </NavLink>
-                <NavLink to='/:username/:id/notifications'>
-                  {(posts.length >= 1 &&
-                    (
-                      <>
-                        <CircleNotif />
-                        <NotificationLogo />
-                      </>
-                    )
-                  )}
-                  {(posts.length === 0 && (
-                    <NotificationLogo />
-                  ))}
-                  Notifications
-                </NavLink>
+                
+                  <NavLink to='/:username/:id/notifications' onClick={() => dispatch(clearNotifications())}>
+                    {(hasNew && 
+                      (
+                        <>
+                          <CircleNotif />
+                          <NotificationLogo />
+                        </>
+                      )
+                    )}
+                    {(!hasNew &&
+                      (
+                        <>
+                          <NotificationLogo />
+                        </>
+                      )
+                    )}
+
+                    Notifications
+                  </NavLink>
                 <NavLink to='/:username/:id/logout'>
                   <LogOut />
                   LogOut

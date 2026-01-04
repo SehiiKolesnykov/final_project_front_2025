@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchFeed } from "@/pages/feed/api/fetchFeed";
 import { fetchPost } from "@/pages/post/api/fetchPost";
 import { fetchReplies } from "@/pages/post/api/fetchReplies";
-
 export const fetchFeedThunk = createAsyncThunk("posts/fetchFeed", async () => {
   return await fetchFeed();
 });
@@ -175,5 +174,5 @@ const postsSlice = createSlice({
   },
 });
 
-export const { createPost, toggleLike, setCurrentPost,deletePost } = postsSlice.actions;
+export const { createPost, toggleLike, setCurrentPost, deletePost } = postsSlice.actions;
 export default postsSlice.reducer;

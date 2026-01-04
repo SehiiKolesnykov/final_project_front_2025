@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
 import PropTypes from "prop-types";
-
+import { setNewNotification } from "@/app/store/notifications/notificationsSlice";
 import { createPost } from "@/app/store/posts/postsSlice";
 import RemoveIcon from "shared/assets/icons/x-icon.svg?react";
 import MediaIcon from "shared/assets/icons/media-icon.svg?react";
@@ -68,6 +68,7 @@ function CreatePostForm({ parentId = null, isReply = false, username }) {
       reposted: false,
     };
     dispatch(createPost(newPost));
+    dispatch(setNewNotification())
 
     setText("");
     setMedia(null);

@@ -13,7 +13,7 @@ const RootRouter = [
 
   {
     path: "/:username/post/:postId",
-    element: <PostPage />,
+    element: <PostPage/>,
   },
   {
     path: "/:username/:id/chat",
