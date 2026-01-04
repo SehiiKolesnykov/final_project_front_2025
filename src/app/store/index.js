@@ -5,7 +5,7 @@ import headerReducer from "./header/headerSlice"
 export const store = configureStore({
   reducer: {
     posts: postsReducer,
-    header: headerReducer,
+    header: headerReducer ,
 
     //місце для вашіх редюсерів :)
   },
