@@ -174,5 +174,5 @@ const postsSlice = createSlice({
   },
 });
 
-export const { createPost, toggleLike, setCurrentPost, deletePost } = postsSlice.actions;
+export const { createPost, toggleLike, setCurrentPost, deletePost ,filterPost} = postsSlice.actions;
 export default postsSlice.reducer;

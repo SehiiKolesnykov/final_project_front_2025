@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import PostCard from "../../../shared/post/PostCard/PostCard";
@@ -9,7 +9,7 @@ import { PostCardWrapper } from "../../../shared/post/PostCard/PostCard.styled";
 export default function PostList() {
   const dispatch = useDispatch();
   const posts = useSelector(selectFeedPosts);
-
+ 
   useEffect(() => {
     dispatch(fetchFeedThunk());
     

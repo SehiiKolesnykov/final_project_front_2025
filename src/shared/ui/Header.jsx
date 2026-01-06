@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import MainLogoSvg from '../../image/WiDi.svg?react'
 import MenuLogo from '../../image/menu.svg?react'
@@ -15,21 +15,25 @@ import CircleNotif from '../../image/circle.svg?react'
 import { selectorIsShow } from "@/app/store/header/headerSelectors";
 import { useSelector } from "react-redux";
 import { actionMenu } from "@/app/store/header/headerSlice";
-import {
-  selectFeedPosts,
-} from "@/app/store/posts/postsSelectors";
 import { selectorNotifications } from "@/app/store/notifications/notificationsSelector";
 import { clearNotifications } from "@/app/store/notifications/notificationsSlice";
 import { useMediaQuery } from "./UseMedia";
 import {
   Heder,
+  Name,
   HeaderWrapper,
-  MenuWrapper,
+  MenuMiddleWrapper,
   LogoWrapper,
   Title,
+  IconWrapper,
+  HeaderSearch,
+  MenuSideWrapper,
 } from './HeaderStyled'
+import { selectFeedPosts } from "@/app/store/posts/postsSelectors";
 export default function Header() {
   const posts = useSelector(selectFeedPosts)
+  const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [searchValue, setSearchValue] = useState('');
   const isShow = useSelector(selectorIsShow)
   const hasNew = useSelector(selectorNotifications)
   const dispatch = useDispatch()
@@ -39,6 +43,19 @@ export default function Header() {
   function showBurgerMenu() {
     dispatch(actionMenu())
   }
+
+  const searchPost = (value) => {
+    setSearchValue(value);
+
+    const filtered = posts.filter(post =>
+      post.text.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setFilteredPosts(filtered);
+  };
+
+
+
   return (
     <>
       {isMobile && (
@@ -47,10 +64,12 @@ export default function Header() {
             <LogoWrapper>
               <MainLogoSvg />
               <Title>WiDi</Title>
+              <SearchLogo />
+              <HeaderSearch size="10" placeholder="Search" />
             </LogoWrapper>
             <MenuLogo onClick={showBurgerMenu} />
             {isShow && (
-              <MenuWrapper>
+              <MenuMiddleWrapper>
                 <NavLink to='/'>
                   <HomeLogo />
                   Home Page
@@ -63,10 +82,6 @@ export default function Header() {
                   <SmsLogo />
                   Messenger
                 </NavLink>
-                <NavLink to='/:username/:id/search'>
-                  <SearchLogo />
-                  Search
-                </NavLink>
                 <NavLink to='/:username/:id/posts'>
                   <PostLogo />
                   Posts
@@ -75,31 +90,31 @@ export default function Header() {
                   <FavsLogo />
                   Favorite
                 </NavLink>
-                
-                  <NavLink to='/:username/:id/notifications' onClick={() => dispatch(clearNotifications())}>
-                    {(hasNew && 
-                      (
-                        <>
-                          <CircleNotif />
-                          <NotificationLogo />
-                        </>
-                      )
-                    )}
-                    {(!hasNew &&
-                      (
-                        <>
-                          <NotificationLogo />
-                        </>
-                      )
-                    )}
+                <NavLink to='/:username/:id/notifications' onClick={() => dispatch(clearNotifications())}>
+                  {(hasNew &&
+                    (
+                      <>
+                        <CircleNotif />
+                        <NotificationLogo />
+                      </>
+                    )
+                  )}
+                  {(!hasNew &&
+                    (
+                      <>
+                        <NotificationLogo />
+                      </>
+                    )
+                  )}
 
-                    Notifications
-                  </NavLink>
+                  Notifications
+                </NavLink>
                 <NavLink to='/:username/:id/logout'>
                   <LogOut />
                   LogOut
                 </NavLink>
-              </MenuWrapper>
+              </MenuMiddleWrapper>
+
             )}
           </HeaderWrapper>
         </Heder>
@@ -110,51 +125,90 @@ export default function Header() {
             <LogoWrapper>
               <MainLogoSvg />
               <Title>WiDi</Title>
+              <SearchLogo />
+              <HeaderSearch size="10" placeholder="Search" />
             </LogoWrapper>
-            <MenuWrapper>
+            <MenuMiddleWrapper>
               <NavLink to='/'>
-                <HomeLogo />
-                Home Page
-              </NavLink>
-              <NavLink to='/:username/:id/profile'>
-                <ProfileLogo />
-                Profile
-              </NavLink>
-              <NavLink to='/:username/:id/chat'>
-                <SmsLogo />
-                Messenger
-              </NavLink>
-              <NavLink to='/:username/:id/search'>
-                <SearchLogo />
-                Search
+                <IconWrapper>
+                  <HomeLogo />
+                  <Name>
+                    Home Page
+                  </Name>
+                </IconWrapper>
               </NavLink>
               <NavLink to='/:username/:id/posts'>
-                <PostLogo />
-                Posts
+                <IconWrapper>
+                  <PostLogo />
+                  <Name>
+                    Posts
+                  </Name>
+                </IconWrapper>
               </NavLink>
               <NavLink to='/:username/:id/favorite'>
-                <FavsLogo />
-                Favorite
+                <IconWrapper>
+                  <FavsLogo />
+                  <Name>
+                    Favorite
+                  </Name>
+                </IconWrapper>
               </NavLink>
-              <NavLink to='/:username/:id/notifications'>
-                {(posts.length >= 1 &&
+            </MenuMiddleWrapper>
+            <MenuSideWrapper>
+              <NavLink to='/:username/:id/profile'>
+                <IconWrapper>
+                  <ProfileLogo />
+                  <Name>
+                    Profile
+                  </Name>
+                </IconWrapper>
+              </NavLink>
+              <NavLink to='/:username/:id/chat'>
+                <IconWrapper>
+                  <SmsLogo />
+                  <Name>
+                    Messenger
+                  </Name>
+                </IconWrapper>
+              </NavLink>
+              <NavLink to='/:username/:id/notifications' onClick={() => dispatch(clearNotifications())}>
+                {(hasNew &&
                   (
                     <>
-                      <CircleNotif />
-                      <NotificationLogo />
+                      <IconWrapper>
+                        <NotificationLogo />
+                        <CircleNotif />
+                        <Name>
+                          Notifications
+                        </Name>
+                      </IconWrapper>
                     </>
                   )
                 )}
-                {(posts.length === 0 && (
-                  <NotificationLogo />
-                ))}
-                Notifications
+                {(!hasNew &&
+                  (
+                    <>
+                      <IconWrapper>
+                        <NotificationLogo />
+                        <Name>
+                          Notifications
+                        </Name>
+                      </IconWrapper>
+                    </>
+                  )
+                )}
+
               </NavLink>
               <NavLink to='/:username/:id/logout'>
-                <LogOut />
-                LogOut
+                <IconWrapper>
+                  <LogOut />
+                  <Name>
+                    LogOut
+                  </Name>
+                </IconWrapper>
               </NavLink>
-            </MenuWrapper>
+
+            </MenuSideWrapper>
           </HeaderWrapper>
         </Heder>
       )}
@@ -164,51 +218,94 @@ export default function Header() {
             <LogoWrapper>
               <MainLogoSvg />
               <Title>WiDi</Title>
+              <SearchLogo />
+              <HeaderSearch size="10" placeholder="Search" onChange={(e) => searchPost(e.target.value)} />
             </LogoWrapper>
-            <MenuWrapper>
+            <MenuMiddleWrapper>
               <NavLink to='/'>
-                <HomeLogo />
-                Home Page
-              </NavLink>
-              <NavLink to='/:username/:id/profile'>
-                <ProfileLogo />
-                Profile
-              </NavLink>
-              <NavLink to='/:username/:id/chat'>
-                <SmsLogo />
-                Messenger
-              </NavLink>
-              <NavLink to='/:username/:id/search'>
-                <SearchLogo />
-                Search
+                <IconWrapper>
+                  <HomeLogo />
+                  <Name>
+                    Home Page
+                  </Name>
+                </IconWrapper>
               </NavLink>
               <NavLink to='/:username/:id/posts'>
-                <PostLogo />
-                Posts
+                <IconWrapper>
+                  <PostLogo />
+                  <Name>
+                    Posts
+                  </Name>
+                </IconWrapper>
               </NavLink>
               <NavLink to='/:username/:id/favorite'>
-                <FavsLogo />
-                Favorite
+                <IconWrapper>
+                  <FavsLogo />
+                  <Name>
+                    Favorite
+                  </Name>
+
+                </IconWrapper>
               </NavLink>
-              <NavLink to='/:username/:id/notifications'>
-                {(posts.length >= 1 &&
+            </MenuMiddleWrapper>
+            <MenuSideWrapper>
+              <NavLink to='/:username/:id/profile'>
+                <IconWrapper>
+                  <ProfileLogo />
+                  <Name>
+                    Profile
+
+                  </Name>
+                </IconWrapper>
+              </NavLink>
+              <NavLink to='/:username/:id/chat'>
+                <IconWrapper>
+                  <SmsLogo />
+                  <Name>
+                    Messenger
+                  </Name>
+                </IconWrapper>
+              </NavLink>
+              <NavLink to='/:username/:id/notifications' onClick={() => dispatch(clearNotifications())}>
+                {(hasNew &&
                   (
                     <>
-                      <CircleNotif />
-                      <NotificationLogo />
+                      <IconWrapper>
+                        <NotificationLogo />
+                        <CircleNotif />
+                        <Name>
+                          Notifications
+                        </Name>
+                      </IconWrapper>
                     </>
                   )
                 )}
-                {(posts.length === 0 && (
-                  <NotificationLogo />
-                ))}
-                Notifications
+                {(!hasNew &&
+                  (
+                    <>
+                      <IconWrapper>
+                        <NotificationLogo />
+                        <Name>
+                          Notifications
+
+                        </Name>
+                      </IconWrapper>
+                    </>
+                  )
+                )}
+
               </NavLink>
               <NavLink to='/:username/:id/logout'>
-                <LogOut />
-                LogOut
+                <IconWrapper>
+                  <LogOut />
+                  <Name>
+
+                    LogOut
+                  </Name>
+                </IconWrapper>
               </NavLink>
-            </MenuWrapper>
+
+            </MenuSideWrapper>
           </HeaderWrapper>
         </Heder>
       )}
