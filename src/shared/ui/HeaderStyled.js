@@ -69,7 +69,6 @@ export const MenuSideWrapper = styled.div`
   display:flex;
   gap:5px;
   `
-
 export const HeaderSearch = styled.input`
   border-radius:10px;
   `

@@ -17,6 +17,7 @@ import {
 import TimeAgo from "pages/feed/ui/TimeAgo";
 import Actions from "shared/post/Actions/Actions";
 
+
 function PostCard({ post, withTopLine = false, withBottomLine = false }) {
   const { postId, avatar, createdTime, name, username, text, media } = post;
   return (

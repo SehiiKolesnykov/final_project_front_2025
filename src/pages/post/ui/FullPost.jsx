@@ -29,7 +29,7 @@ function FullPost({ post }) {
           <Media src={media} />
         </MediaWrapper>
       )}
-      <PostDate time={createdTime}/>
+      <PostDate time={createdTime} />
       <Actions post={post} withBorder />
     </FullPostWrapper>
   );

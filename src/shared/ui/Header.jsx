@@ -28,9 +28,12 @@ import {
   IconWrapper,
   HeaderSearch,
   MenuSideWrapper,
+
 } from './HeaderStyled'
 import { setSearchValue } from "@/app/store/search/searchSlice";
+
 export default function Header() {
+  
   const isShow = useSelector(selectorIsShow)
   const hasNew = useSelector(selectorNotifications)
   const dispatch = useDispatch()
@@ -49,7 +52,7 @@ export default function Header() {
               <MainLogoSvg />
               <Title>WiDi</Title>
               <SearchLogo />
-             <HeaderSearch size="10" placeholder="Search" onChange={(e)=>dispatch(setSearchValue(e.target.value))} />
+              <HeaderSearch size="10" placeholder="Search" onChange={(e) => dispatch(setSearchValue(e.target.value))} />
             </LogoWrapper>
             <MenuLogo onClick={showBurgerMenu} />
             {isShow && (
@@ -110,7 +113,7 @@ export default function Header() {
               <MainLogoSvg />
               <Title>WiDi</Title>
               <SearchLogo />
-             <HeaderSearch size="10" placeholder="Search" onChange={(e)=>dispatch(setSearchValue(e.target.value))} />
+              <HeaderSearch size="10" placeholder="Search" onChange={(e) => dispatch(setSearchValue(e.target.value))} />
             </LogoWrapper>
             <MenuMiddleWrapper>
               <NavLink to='/'>
@@ -203,7 +206,7 @@ export default function Header() {
               <MainLogoSvg />
               <Title>WiDi</Title>
               <SearchLogo />
-              <HeaderSearch size="10" placeholder="Search" onChange={(e)=>dispatch(setSearchValue(e.target.value))} />
+              <HeaderSearch size="10" placeholder="Search" onChange={(e) => dispatch(setSearchValue(e.target.value))} />
             </LogoWrapper>
             <MenuMiddleWrapper>
               <NavLink to='/'>

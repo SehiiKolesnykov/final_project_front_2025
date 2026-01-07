@@ -75,7 +75,6 @@ const postsSlice = createSlice({
         post => post.postId !== action.payload
       );
     },
-
     toggleLike: (state, action) => {
       const postId = action.payload;
       const post = state.feedPosts.find(
@@ -174,5 +173,5 @@ const postsSlice = createSlice({
   },
 });
 
-export const { createPost, toggleLike, setCurrentPost, deletePost ,filterPost} = postsSlice.actions;
+export const { createPost, toggleLike, setCurrentPost, deletePost} = postsSlice.actions;
 export default postsSlice.reducer;
