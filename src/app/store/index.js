@@ -1,9 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./counter/counterSlice";
+import postsReducer from "./posts/postsSlice";
+import authSlice from "./authentication/authSlice";
+import chatReducer from "./chat/slices/chatSlice";
+import headerReducer from "./header/headerSlice";
+import notificationsReducer from "./notifications/notificationsSlice";
+import searchSliceReducer from "./search/searchSlice";
+import favoriteSliceReducer from "./favorite/favoriteSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    //місце для вашіх редюсерів :)
+    auth: authSlice,
+    posts: postsReducer,
+    chat: chatReducer,
+    header: headerReducer,
+    notifications: notificationsReducer,
+    search: searchSliceReducer,
+    favorites: favoriteSliceReducer,
   },
 });
