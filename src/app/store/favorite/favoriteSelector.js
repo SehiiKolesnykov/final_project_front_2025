@@ -1,1 +1,0 @@
-export const selectorFavorites = (store) => store.favorites.hasNewFavs;
