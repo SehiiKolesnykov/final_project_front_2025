@@ -1,20 +1,13 @@
-import styled from "styled-components";
-
-import CreatePostForm from "shared/post/CreatePostForm/CreatePostForm";
-import PostList from "pages/feed/ui/PostList";
-import PageWrapper from "shared/ui/PageWrapper";
-
-const FeedWrapper = styled(PageWrapper)`
-  & > :first-child {
-    /* border-bottom: 1px solid #2f3336; */
-  }
-`;
+import Counter from "./ui/Counter";
+import TestButton from "./ui/TestButton";
 
 export default function FeedPage() {
   return (
-    <FeedWrapper>
-      <CreatePostForm />
-      <PostList />
-    </FeedWrapper>
+    <>
+      <h2>Here will be feed</h2>
+      <p>Лічильник для прикладу роботи редакса</p>
+      <Counter />
+      <TestButton />
+    </>
   );
 }
