@@ -4,7 +4,7 @@ import FeedPage from "@/pages/feed/FeedPage";
 const RootRouter = [
   {
     path: "/",
-    element: <FeedPage />,
+    element: <PrivateRoute><FeedPage /></PrivateRoute>,
   },
   {
     path: "/users/:id",
